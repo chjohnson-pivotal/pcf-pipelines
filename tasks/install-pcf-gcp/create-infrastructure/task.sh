@@ -58,11 +58,11 @@ terraform plan \
   -var "db_nfsvolumedb_username=${DB_NFSVOLUMEDB_USERNAME}" \
   -var "db_nfsvolumedb_password=${DB_NFSVOLUMEDB_PASSWORD}" \
   -out terraform.tfplan \
-  -state $root/create-infrastructure-output/terraform.tfstate \
+  -state $root/terraform-state/terraform.tfstate \
   pcf-pipelines/tasks/install-pcf-gcp/terraform/$gcp_pcf_terraform_template
 
 terraform apply \
-  -state-out $root/create-infrastructure-output/terraform.tfstate \
+  -state-out $root/terraform-state/terraform.tfstate \
   -parallelism=5 \
   terraform.tfplan
 
