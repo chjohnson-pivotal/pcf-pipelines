@@ -66,7 +66,7 @@ terraform apply \
   -parallelism=5 \
   terraform.tfplan
 
-cd $root/create-infrastructure-output
+cd $root/terraform-state
   output_json=$(terraform output -json -state=terraform.tfstate)
   pub_ip_global_pcf=$(echo $output_json | jq --raw-output '.pub_ip_global_pcf.value')
   pub_ip_ssh_and_doppler=$(echo $output_json | jq --raw-output '.pub_ip_ssh_and_doppler.value')
